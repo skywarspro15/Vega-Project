@@ -5,6 +5,7 @@ enableDrag("myWindow");
 
 let bg = document.querySelector(".background");
 let sep = document.querySelector(".separated");
+let boot = document.querySelector(".boot");
 let style = getComputedStyle(document.body);
 let image = style
   .getPropertyValue("--desktop-wallpaper")
@@ -24,12 +25,18 @@ function separateBackground(path) {
   sep.src = finalURL.href;
   sep.addEventListener("load", () => {
     bg.src = path;
+    bg.addEventListener("load", () => {
+      boot.style.animation = "fadeOut 0.5s ease-in-out";
+      setTimeout(() => {
+        boot.remove();
+      }, 500);
+    });
   });
 }
 
 separateBackground(image);
 
-function formatAMPM(date) {
+function formatTimeDate(date) {
   var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   var months = [
     "January",
@@ -60,7 +67,7 @@ function formatAMPM(date) {
   return strTime + "\n" + strDate;
 }
 
-function formatAMPM2(date) {
+function formatTime(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var ampm = hours >= 12 ? "PM" : "AM";
@@ -74,16 +81,16 @@ function formatAMPM2(date) {
 
 let timeElement = document.querySelector(".time");
 let timeDesktop = document.querySelector(".timeDesktop");
-curTime = formatAMPM(new Date());
+curTime = formatTimeDate(new Date());
 console.log(curTime);
 timeElement.innerText = curTime;
-timeDesktop.innerText = formatAMPM2(new Date());
+timeDesktop.innerText = formatTime(new Date());
 
 setInterval(() => {
-  curTime = formatAMPM(new Date());
+  curTime = formatTimeDate(new Date());
   console.log(curTime);
   timeElement.innerText = curTime;
-  timeDesktop.innerText = formatAMPM2(new Date());
+  timeDesktop.innerText = formatTime(new Date());
 }, 1000);
 
 function windowGenerate(winData) {
