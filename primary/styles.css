@@ -1,0 +1,291 @@
+html {
+  overflow: hidden;
+}
+
+:root {
+  --desktop-wallpaper: url("https://cdn.discordapp.com/attachments/1000788414620246098/1145692888743825458/720P.jpg");
+}
+
+body {
+  background-image: var(--desktop-wallpaper);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+.CreateApp {
+  z-index: 10;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+}
+
+.desktop {
+  z-index: -2;
+}
+
+.background {
+  object-fit: cover;
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.separated {
+  object-fit: cover;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.timeDesktop {
+  position: fixed;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+  font: bold 80px Cambria;
+  top: 0.3in;
+  width: 100%;
+  letter-spacing: -3px;
+}
+.dateDesktop {
+  position: fixed;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+  font: bold 16px Segoe UI;
+  top: 0.5in;
+  width: 100%;
+}
+
+.taskbar {
+  background-color: rgba(29, 29, 29, 1);
+  backdrop-filter: saturate(200%) blur(50px);
+  position: fixed;
+  font-size: 12px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  animation: enterIn 0.5s cubic-bezier(0.19, 1, 0.22, 0.1);
+}
+
+.taskbar .home {
+  position: absolute;
+  width: 0.15in;
+  left: 0.15in;
+}
+
+.taskbar .search {
+  position: absolute;
+  width: 2in;
+  height: 0.3in;
+  left: 0.45in;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-radius: 10px;
+  padding-left: 0.15in;
+  opacity: 0.5;
+  transition-property: width, background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.taskbar .search:focus {
+  width: 3in;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.taskbar .time {
+  color: #fff;
+  font-size: 11px;
+  margin-right: 0.1in;
+  text-align: right;
+}
+
+.taskbar .quickActions {
+  background-color: rgba(255, 255, 255, 0.05);
+  width: 0.6in;
+  height: 0.3in;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.05in;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+  font-family: iconfont;
+  margin-right: 0.1in;
+  padding-left: 5px;
+}
+
+.taskbar {
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 0.45in;
+  border: 0.5px solid rgba(128, 128, 128, 0.2);
+}
+
+/* Global Properties (Frame) */
+.window-frame {
+  /* left: 0;
+  top: 0; */
+  width: 8.18in;
+  height: 6.33in;
+  background-color: rgb(24, 24, 24);
+  position: absolute;
+  border-radius: 6px;
+  animation: enterIn 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  user-select: none;
+  transition-property: background-color, box-shadow;
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  border: 0.5px solid rgba(128, 128, 128, 0.2);
+  color: rgb(255, 255, 255);
+}
+
+.window-frame.focused {
+  background-color: rgba(29, 29, 29, 1);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 1);
+}
+
+/* Root (For Dragging) */
+.window-frame .window-drag {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  color: rgb(128, 128, 128);
+  font-size: 12px;
+  width: 100%;
+  height: 0.4in;
+}
+
+/* Root (For Sidebar) */
+.window-frame .window-sidebar {
+  width: 175px;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Global Properties (Contents) */
+.window-frame .window-contents {
+  margin-left: 210px;
+}
+
+/* Window Elements */
+.window-frame .window-contents .window-header {
+  height: 0.5in;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* For section with no caption */
+.window-frame .window-contents .window-singleSection {
+  align-items: center;
+  height: 0.4in;
+  display: flex;
+  gap: 0.2in;
+  margin-left: 0.2in;
+}
+
+.window-frame .window-contents .window-singleSection .window-icon {
+  font-family: iconfont;
+  font-size: 22px;
+}
+
+.window-frame .window-contents .window-singleSection .window-body {
+  font-size: 14px;
+}
+
+.window-frame .window-contents .window-divider {
+  align-items: center;
+  height: 0.3in;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.window-frame .window-contents .window-cards {
+  margin: 0.1in 0;
+  align-items: center;
+  height: 0.7in;
+  gap: 0.05in;
+  margin-left: 0.2in;
+}
+
+.window-frame .window-contents .window-cards .cards {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  opacity: 0.5;
+  border: 0;
+  width: 1in;
+  height: 0.7in;
+  font-size: 32px;
+  border-radius: 4px;
+}
+
+.window-frame .window-controls {
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+
+  justify-content: flex-end;
+  height: 0.7in;
+  margin-left: auto;
+}
+
+.window-frame .window-controls .controls {
+  background-color: rgba(255, 255, 255, 0);
+  top: 0;
+  color: #fff;
+  opacity: 0.5;
+  border: 0;
+  width: 0.35in;
+  height: 0.3in;
+  font-size: 9px;
+  font-family: iconfont;
+}
+
+@font-face {
+  font-family: IconFont;
+  src: url(assets/SFI.ttf);
+}
+
+@keyframes enterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes exitOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

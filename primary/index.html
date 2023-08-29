@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <input
+      class="CreateApp"
+      type="button"
+      value="App"
+      onclick='windowGenerate({id: Math.random().toString(), "title":"Burger King" ,"content": "Huge Whopper <br> Junior Double Tripple Whopper"})'
+    />
+    <div class="desktop">
+      <img class="background" src="" alt="" />
+      <div class="container">
+        <h1 class="dateDesktop">Mon, January 99</h1>
+        <h1 class="timeDesktop">9:41</h1>
+      </div>
+      <img class="separated" src="" alt="" />
+    </div>
+    <div class="window-frame" id="myWindow">
+      <div class="window-drag">Settings</div>
+      <div class="window-controls">
+        <button class="controls">&#xE921;</button>
+        <button class="controls" onclick="maximizeWindow('myWindow')">
+          &#xE922;
+        </button>
+        <button class="controls" onclick="closeWindow('myWindow')">
+          &#xE8BB;
+        </button>
+      </div>
+      <div class="window-sidebar"></div>
+
+      <div class="window-contents">
+        <div class="window-header">Customization</div>
+        <div class="window-divider">Wallpaper</div>
+        <div class="window-singleSection">
+          <div class="window-icon">&#xE91B;</div>
+          <div class="window-body">Change your desktop wallpaper</div>
+        </div>
+        <div class="window-cards">
+          <button class="cards">+</button>
+          <button class="cards">+</button>
+          <button class="cards">+</button>
+          <button class="cards">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="taskbar" id="taskbar">
+      <img class="home" src="assets/vgi_logo_white.svg" />
+      <div contenteditable class="search">Search for something</div>
+      <p class="time"></p>
+      <div class="quickActions">&#xE839;&#xE767;</div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

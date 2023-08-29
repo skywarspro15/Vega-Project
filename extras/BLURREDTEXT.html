@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    img {
+      object-fit: cover;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .Time {
+      position: fixed;
+      color: white;
+      backdrop-filter: blur(12px) saturate(100%) brightness(300%);
+      background-color: rgba(255,255,255,0.1);
+      clip-path: url(#initialTimePath);
+      font: bold 80px Cambria;
+      top: 1in;
+      width: 100%;
+      letter-spacing: -3px;
+    }
+    .Date {
+      position: fixed;
+      color: white;
+      backdrop-filter: blur(12px) saturate(100%) brightness(300%);
+      background-color: rgba(255,255,255,0.1);
+      clip-path: url(#initialDatePath);
+      font: bold 16px Segoe UI;
+      top: 0.7in;
+      width: 100%;
+      letter-spacing: -0.8px;
+    }
+
+  </style>
+</head>
+<body>
+  <img src="https://cdn.discordapp.com/attachments/1000788414620246098/1145692888743825458/720P.jpg"></img>
+    <svg class="Time">
+      <clipPath id="initialTimePath">
+        <text id="initialTime" dominant-baseline="hanging" text-anchor="middle" x="50%"></text>
+      </clipPath>
+    </svg>
+    <svg class="Date">
+      <clipPath id="initialDatePath">
+        <text id="initialDate" dominant-baseline="hanging" text-anchor="middle" x="50%"></text>
+      </clipPath>
+    </svg>
+</body>
+<script>
+    let xtime = document.getElementById("initialTime");
+    xtime.innerHTML = "22:56"
+    let xdate = document.getElementById("initialDate");
+    xdate.innerHTML = "Mon Aug 28"
+</script>
+</html>
+
+<!-- idk if its reusable for other elements yet -->

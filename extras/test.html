@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Background Separation Test</title>
+    <style>
+      :root {
+        --desktop-wallpaper: url("https://images.unsplash.com/photo-1690643610384-b387c5a42c71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+      }
+      .background {
+        object-fit: cover;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .separated {
+        object-fit: cover;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .container {
+        z-index: 1;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .bigElement {
+        font-size: 150px;
+      }
+    </style>
+  </head>
+  <img class="background" src="" alt="" />
+  <div class="container">
+    <h1 class="bigElement">insanely big element</h1>
+  </div>
+  <img class="separated" src="" alt="" />
+  <body>
+    <script>
+      // TODO: caching
+      // ok fuck caching, let's put it behind a boot screen and call it a day
+      let bg = document.querySelector(".background");
+      let sep = document.querySelector(".separated");
+      let style = getComputedStyle(document.body);
+      let image = style
+        .getPropertyValue("--desktop-wallpaper")
+        .replace('url("', "")
+        .replace('")', "");
+
+      console.log(encodeURI(image));
+
+      function separateBackground(path) {
+        const finalURL = new URL(
+          "https://backgroundremovalapi.skywarspro15.repl.co/separate"
+        );
+        finalURL.searchParams.append("p", path);
+        console.log(finalURL.href);
+        sep.src = finalURL.href;
+        sep.addEventListener("load", () => {
+          bg.src = path;
+        });
+      }
+      separateBackground(image);
+    </script>
+  </body>
+</html>
