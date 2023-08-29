@@ -69,22 +69,27 @@ body {
   border: none;
 }
 
-.timeDesktop {
+.Time {
   position: fixed;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(12px) saturate(100%) brightness(300%);
+  background-color: rgba(255, 255, 255, 0.1);
+  clip-path: url(#initialTimePath);
   font: bold 80px Cambria;
-  top: 0.3in;
+  top: 1in;
   width: 100%;
   letter-spacing: -3px;
 }
-.dateDesktop {
+.Date {
   position: fixed;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(12px) saturate(100%) brightness(300%);
+  background-color: rgba(255, 255, 255, 0.1);
+  clip-path: url(#initialDatePath);
   font: bold 16px Segoe UI;
-  top: 0.5in;
+  top: 0.7in;
   width: 100%;
+  letter-spacing: -0.8px;
 }
 
 .taskbar {

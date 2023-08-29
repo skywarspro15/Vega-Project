@@ -79,18 +79,45 @@ function formatTime(date) {
   return strTime;
 }
 
+function formatDate(date) {
+  var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  var day = date.getDate();
+
+  var strDate =
+    daysOfWeek[date.getDay()] + ", " + months[date.getMonth()] + " " + day;
+  return strDate;
+}
+
 let timeElement = document.querySelector(".time");
-let timeDesktop = document.querySelector(".timeDesktop");
+let timeDesktop = document.getElementById("initialTime");
+let dateDesktop = document.getElementById("initialDate");
 curTime = formatTimeDate(new Date());
 console.log(curTime);
-timeElement.innerText = curTime;
-timeDesktop.innerText = formatTime(new Date());
+timeElement.textContent = curTime;
+timeDesktop.textContent = formatTime(new Date());
+dateDesktop.textContent = formatDate(new Date());
 
 setInterval(() => {
   curTime = formatTimeDate(new Date());
   console.log(curTime);
-  timeElement.innerText = curTime;
-  timeDesktop.innerText = formatTime(new Date());
+  timeElement.textContent = curTime;
+  timeDesktop.textContent = formatTime(new Date());
+  dateDesktop.textContent = formatDate(new Date());
 }, 1000);
 
 function windowGenerate(winData) {
