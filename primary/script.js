@@ -108,14 +108,14 @@ let timeDesktop = document.getElementById("initialTime");
 let dateDesktop = document.getElementById("initialDate");
 curTime = formatTimeDate(new Date());
 console.log(curTime);
-timeElement.textContent = curTime;
+timeElement.innerText = curTime;
 timeDesktop.textContent = formatTime(new Date());
 dateDesktop.textContent = formatDate(new Date());
 
 setInterval(() => {
   curTime = formatTimeDate(new Date());
   console.log(curTime);
-  timeElement.textContent = curTime;
+  timeElement.innerText = curTime;
   timeDesktop.textContent = formatTime(new Date());
   dateDesktop.textContent = formatDate(new Date());
 }, 1000);
